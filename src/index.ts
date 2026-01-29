@@ -1,16 +1,16 @@
 import mongoose from "mongoose";
+import express from "express";
+import router from "./routes/route";
 
-import { ProductModel } from "./models/product.model";
+mongoose
+  .connect("mongodb://localhost:27017/ts_demo")
+  .then(() => console.log("Connected to mongodb"))
+  .catch((err) => console.error("Connection err: ", err));
 
-mongoose.connect("mongodb://localhost:27017/ts_demo")
-.then(()=>console.log("Connected to mongodb"))
-.catch((err)=>console.error("Connection err: ",err))
+const app = express();
+app.use(express.json());
+app.use(router);
 
-const newProd=new ProductModel({
-    title:"Bag",
-    price:5000
-})
-
-newProd.save()
-.then(()=>console.log("Product Saved"))
-.catch((err)=>console.error(err))
+app.listen(3000, () => {
+  console.log("Server running on the port 3000");
+});

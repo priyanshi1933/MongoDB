@@ -1,0 +1,54 @@
+POST http://localhost:3000/products 
+content-type: application/json
+
+{
+    "title": "HeadPhone",
+    "price": 1000
+}
+
+###
+GET http://localhost:3000/products 
+
+###
+GET http://localhost:3000/products/697b03ca0d8eac0224542eb9
+
+###
+PUT http://localhost:3000/products/697b03ca0d8eac0224542eb9 
+content-type: application/json
+
+{
+    "title": "IPhone 17",
+    "price": 10000
+}
+
+###
+DELETE  http://localhost:3000/products/697a0a53c4e1253d612d3294
+
+###
+POST http://localhost:3000/orders 
+content-type: application/json
+
+{
+    "productId": "697b3ea062317712c70139dc",
+    "status": "Shipped"
+}
+
+###
+GET http://localhost:3000/orders/697b3325908cbbc5246bd07d
+
+###
+GET http://localhost:3000/orders
+
+###
+PUT http://localhost:3000/orders/697b351ace3651a5d1029f1e 
+content-type: application/json
+
+{
+    "productId": "697b1a7a7429f9aa52d4f748",
+    "status": "Processing"
+}
+
+###
+DELETE  http://localhost:3000/orders/697b329e908cbbc5246bd073
+
+
