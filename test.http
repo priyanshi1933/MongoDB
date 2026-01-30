@@ -2,18 +2,18 @@ POST http://localhost:3000/products
 content-type: application/json
 
 {
-    "title": "HeadPhone",
-    "price": 1000
+    "title": "Jeans",
+    "price": 2000
 }
 
 ###
 GET http://localhost:3000/products 
 
 ###
-GET http://localhost:3000/products/697b03ca0d8eac0224542eb9
+GET http://localhost:3000/products/697b1a7a7429f9aa52d4f748
 
 ###
-PUT http://localhost:3000/products/697b03ca0d8eac0224542eb9 
+PUT http://localhost:3000/products/697b1a7a7429f9aa52d4f748 
 content-type: application/json
 
 {
@@ -22,7 +22,7 @@ content-type: application/json
 }
 
 ###
-DELETE  http://localhost:3000/products/697a0a53c4e1253d612d3294
+DELETE  http://localhost:3000/products/697b1a7a7429f9aa52d4f748
 
 ###
 POST http://localhost:3000/orders 
@@ -30,25 +30,43 @@ content-type: application/json
 
 {
     "productId": "697b3ea062317712c70139dc",
-    "status": "Shipped"
+    "status": "Delievered"
 }
 
 ###
-GET http://localhost:3000/orders/697b3325908cbbc5246bd07d
+GET http://localhost:3000/orders/697b58e462317712c70139f1
 
 ###
 GET http://localhost:3000/orders
 
 ###
-PUT http://localhost:3000/orders/697b351ace3651a5d1029f1e 
+PUT http://localhost:3000/orders/697b3325908cbbc5246bd07d 
 content-type: application/json
 
 {
     "productId": "697b1a7a7429f9aa52d4f748",
-    "status": "Processing"
+    "status": "Shipped"
 }
 
 ###
-DELETE  http://localhost:3000/orders/697b329e908cbbc5246bd073
+DELETE  http://localhost:3000/orders/697b3325908cbbc5246bd07d
+
+###
+POST http://localhost:3000/register 
+content-type: application/json
+
+{
+    "email": "roshni@gmail.com",
+    "password": "123"
+}
+
+###
+POST http://localhost:3000/login
+content-type: application/json
+
+{
+    "email": "roshni@gmail.com",
+    "password": "123"
+}
 
 

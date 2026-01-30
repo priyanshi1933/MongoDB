@@ -1,6 +1,7 @@
 import express from 'express';
 import * as productcontroller from "../controllers/product.controller"
 import * as ordercontroller from "../controllers/order.controller"
+import * as usercontroller from "../controllers/user.controller"
 
 const router=express.Router();
 
@@ -15,5 +16,8 @@ router.get("/orders/:id",ordercontroller.readById);
 router.get("/orders",ordercontroller.read);
 router.put("/orders/:id",ordercontroller.update);
 router.delete("/orders/:id",ordercontroller.delOrder);
+
+router.post("/register",usercontroller.registerUser);
+router.post("/login",usercontroller.loginUser);
 
 export default router;
