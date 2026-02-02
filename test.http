@@ -56,8 +56,9 @@ POST http://localhost:3000/register
 content-type: application/json
 
 {
-    "email": "roshni@gmail.com",
-    "password": "123"
+    "email": "jay@gmail.com",
+    "password": "jay123",
+    "role":"user"
 }
 
 ###
@@ -65,8 +66,12 @@ POST http://localhost:3000/login
 content-type: application/json
 
 {
-    "email": "roshni@gmail.com",
-    "password": "123"
+    "email": "admin@gmail.com",
+    "password": "admin123"
 }
+
+###
+GET http://localhost:3000/admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODAzZjkyNDFjM2ZmMDg1NmU4YTk0MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MDAzNTU1MH0.lZds-fhC-pkgD2qO9HGvncoCLfg77nLBOZripf0tDT4
 
 

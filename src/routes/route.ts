@@ -2,6 +2,7 @@ import express from 'express';
 import * as productcontroller from "../controllers/product.controller"
 import * as ordercontroller from "../controllers/order.controller"
 import * as usercontroller from "../controllers/user.controller"
+import * as admincontroller from "../controllers/admin.controller"
 
 const router=express.Router();
 
@@ -19,5 +20,7 @@ router.delete("/orders/:id",ordercontroller.delOrder);
 
 router.post("/register",usercontroller.registerUser);
 router.post("/login",usercontroller.loginUser);
+
+router.get("/admin",admincontroller.adminOnlyApi);
 
 export default router;
