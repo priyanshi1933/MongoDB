@@ -11,8 +11,8 @@ export const create = async (req: Request, res: Response) => {
   try {
     const product = await createProduct(req.body);
     res.json(product);
-  } catch (error) {
-    res.json({ message: "Record not inserted" });
+  } catch (error:any) {
+    res.status(400).json({ message: "Record not inserted" });
   }
 };
 

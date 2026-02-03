@@ -2,8 +2,8 @@ POST http://localhost:3000/products
 content-type: application/json
 
 {
-    "title": "Jeans",
-    "price": 2000
+    "title": "Kurti",
+    "price": 1700
 }
 
 ###
@@ -22,7 +22,7 @@ content-type: application/json
 }
 
 ###
-DELETE  http://localhost:3000/products/697b1a7a7429f9aa52d4f748
+DELETE  http://localhost:3000/products/6981c4859bf5d1a774497dfa
 
 ###
 POST http://localhost:3000/orders 
@@ -56,8 +56,8 @@ POST http://localhost:3000/register
 content-type: application/json
 
 {
-    "email": "jay@gmail.com",
-    "password": "jay123",
+    "email": "raj@gmail.com",
+    "password": "raj123",
     "role":"user"
 }
 
@@ -72,6 +72,6 @@ content-type: application/json
 
 ###
 GET http://localhost:3000/admin
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODAzZjkyNDFjM2ZmMDg1NmU4YTk0MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MDAzNTU1MH0.lZds-fhC-pkgD2qO9HGvncoCLfg77nLBOZripf0tDT4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODAzZjkyNDFjM2ZmMDg1NmU4YTk0MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MDAzNjk5OH0.vP0vz7bdR-sqlnJL3GStfhJAWUnu6RZKTLN7XCJ6ngI
 
 

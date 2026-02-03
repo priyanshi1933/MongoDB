@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import {  Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
 export const adminOnlyApi = (req: Request, res: Response) => {

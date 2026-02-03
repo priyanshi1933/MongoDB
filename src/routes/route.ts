@@ -4,6 +4,7 @@ import * as ordercontroller from "../controllers/order.controller"
 import * as usercontroller from "../controllers/user.controller"
 import * as admincontroller from "../controllers/admin.controller"
 
+
 const router=express.Router();
 
 router.post("/products",productcontroller.create);
