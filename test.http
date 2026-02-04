@@ -2,8 +2,9 @@ POST http://localhost:3000/products
 content-type: application/json
 
 {
-    "title": "Kurti",
-    "price": 1700
+    "title": "Bag",
+    "price": 300,
+    "image":"uploads/bag.jpg"
 }
 
 ###

@@ -1,7 +1,7 @@
 import { ProductModel } from "../models/product.model";
 
-export const createProduct=async(data:any)=>{
-    return await ProductModel.create(data);
+export const createProduct=async(title:string,price:number,image:string)=>{
+    return await ProductModel.create({title,price,image});
 }
 
 export const readProducts=async()=>{

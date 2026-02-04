@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import express from "express";
 import router from "./routes/route";
 import cors from "cors";
-
+import path from "path"
 
 mongoose
   .connect("mongodb://localhost:27017/ts_demo")
@@ -13,6 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(router);
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 
 app.listen(3000, () => {

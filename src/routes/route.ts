@@ -3,14 +3,15 @@ import * as productcontroller from "../controllers/product.controller"
 import * as ordercontroller from "../controllers/order.controller"
 import * as usercontroller from "../controllers/user.controller"
 import * as admincontroller from "../controllers/admin.controller"
+import upload from '../config/multer';
 
 
 const router=express.Router();
 
-router.post("/products",productcontroller.create);
+router.post("/products",upload.single("image"),productcontroller.create);
 router.get("/products",productcontroller.readAll);
 router.get("/products/:id",productcontroller.readOne);
-router.put("/products/:id",productcontroller.update);
+router.put("/products/:id",upload.single("image"),productcontroller.update);
 router.delete("/products/:id",productcontroller.deleteProd);
 
 router.post("/orders",ordercontroller.create);
