@@ -8,11 +8,17 @@ import {
 } from "../services/product.service";
 import fs from "fs"
 import path from "path";
+import { productValidation } from "../validation/product.validation";
 
 export const create = async (req: Request, res: Response) => {
+  const dataToValidate={...req.body,image:req.file?req.file.filename:undefined};
+  const {error}=productValidation.validate(dataToValidate);
+  if(error){
+    res.status(400).json({message:error.details[0].message})
+  }
   try {
     const {title,price}=req.body;
-    const image=req.file?req.file.filename:"";
+    const image=req.file!.filename;
     const product = await createProduct(title,Number(price),image);
     res.json(product);
   } catch (error:any) {

@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { login, register } from "../services/user.service";
+import { getUser, login, register } from "../services/user.service";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export const registerUser = async (req: Request, res: Response) => {
   try{
-const { email, password: hashedPassword, role } = req.body;
-  const user = await register(email, hashedPassword, role);
+const { name,email, password: hashedPassword, role } = req.body;
+  const user = await register(name,email, hashedPassword, role);
   res.status(201).json(user);
   }catch(error:any){
     res.status(400).json({message:error.message})
@@ -33,3 +33,13 @@ const { email, password } = req.body;
   }
   
 };
+
+
+export const  getUsers=async(req:Request,res:Response)=>{
+  try{
+    const user=await getUser();
+    res.json(user);
+  }catch(error:any){
+    res.status(400).json({message:"No User Available"})
+  }
+}

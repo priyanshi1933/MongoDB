@@ -2,6 +2,7 @@ import { UserModel } from "../models/user.model";
 import bcrypt from "bcrypt";
 
 export const register = async (
+  name:string,
   email: string,
   password: string,
   role: "admin" | "user" = "user",
@@ -11,7 +12,7 @@ export const register = async (
     throw new Error("Email already exist");
   }
   const hashedPassword = await bcrypt.hash(password, 10);
-  return await UserModel.create({ email, password: hashedPassword, role });
+  return await UserModel.create({ name,email, password: hashedPassword, role });
 };
 
 export const login = async (email: string) => {
@@ -21,3 +22,7 @@ export const login = async (email: string) => {
   }
   return await UserModel.findOne({ email });
 };
+
+export const getUser=async()=>{
+  return await UserModel.find();
+}

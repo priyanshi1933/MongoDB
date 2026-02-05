@@ -22,6 +22,7 @@ router.delete("/orders/:id",ordercontroller.delOrder);
 
 router.post("/register",usercontroller.registerUser);
 router.post("/login",usercontroller.loginUser);
+router.get("/users",usercontroller.getUsers);
 
 router.get("/admin",admincontroller.adminOnlyApi);
 
