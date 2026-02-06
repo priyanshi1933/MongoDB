@@ -27,7 +27,7 @@ const { email, password } = req.body;
   }
   let token = jwt.sign({ id: user._id, role: user.role }, "secretKey");
   res.cookie("token", token);
-  res.json(token);
+  res.json({token});
   }catch(error:any){
     res.status(400).json({field:"email",message:error.message})
   }

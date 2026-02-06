@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import express from "express";
 import router from "./routes/route";
-import cors from "cors";
+import cors, { CorsOptions } from "cors";
 import path from "path"
 
 mongoose
@@ -10,7 +10,15 @@ mongoose
   .catch((err) => console.error("Connection err: ", err));
 
 const app = express();
-app.use(cors());
+
+const corsOptions:CorsOptions={
+  origin:"http://localhost:5173",
+  methods:['GET','POST','PUT','DELETE'],
+  allowedHeaders:['Content-Type','Authorization'],
+  credentials:true
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(router);
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));

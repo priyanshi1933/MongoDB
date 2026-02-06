@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 export const adminOnlyApi = (req: Request, res: Response) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
-    return res.json({ message: "Not Authorized" });
+    return res.status(401).json({ message: "Not Authorized" });
   }
   const token = authHeader.split(" ")[1];
   try {
