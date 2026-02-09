@@ -36,10 +36,19 @@ const { email, password } = req.body;
 
 
 export const  getUsers=async(req:Request,res:Response)=>{
-  try{
-    const user=await getUser();
-    res.json(user);
-  }catch(error:any){
-    res.status(400).json({message:"No User Available"})
-  }
+  // try{
+  //   const user=await getUser();
+  //   res.json(user);
+  // }catch(error:any){
+  //   res.status(400).json({message:"No User Available"})
+  // }
+  const page=Number(req.query.page) || 1;
+  const limit=Number(req.query.limit) || 5;
+  const result=await getUser(page,limit);
+  res.json({
+    currentPage:page,
+    totalPages:result.totalPages,
+    totalUsers:result.totalUsers,
+    data:result.users
+  })
 }

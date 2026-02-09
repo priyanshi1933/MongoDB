@@ -27,12 +27,21 @@ export const create = async (req: Request, res: Response) => {
 };
 
 export const readAll = async (req: Request, res: Response) => {
-  try {
-    const product = await readProducts();
-    res.json(product);
-  } catch (error) {
-    res.json({ message: "Records not available" });
-  }
+  // try {
+  //   const product = await readProducts();
+  //   res.json(product);
+  // } catch (error) {
+  //   res.json({ message: "Records not available" });
+  // }
+  const page=Number(req.query.page) || 1;
+  const limit=Number(req.query.limit) || 6;
+  const result=await readProducts(page,limit);
+  res.json({
+    currentPage:page,
+    totalPages:result.totalPages,
+    totalProducts:result.totalProducts,
+    data:result.products
+  })
 };
 
 export const readOne = async (req: Request, res: Response) => {

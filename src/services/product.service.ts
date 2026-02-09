@@ -4,8 +4,16 @@ export const createProduct=async(title:string,price:number,image:string)=>{
     return await ProductModel.create({title,price,image});
 }
 
-export const readProducts=async()=>{
-    return await ProductModel.find();
+export const readProducts=async(page:number,limit:number)=>{
+    const skip=(page-1)*limit;
+    const products=await ProductModel.find()
+                    .skip(skip)
+                    .limit(limit);
+    const totalProducts=await ProductModel.countDocuments();
+    return {products,totalProducts,
+            totalPages:Math.ceil(totalProducts/limit)
+    }
+    // return await ProductModel.find();
 }
 
 export const readProduct=async(id:string)=>{

@@ -8,7 +8,7 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:3000/products 
+GET http://localhost:3000/products?page=1&limit=6 
 
 ###
 GET http://localhost:3000/products/697b1a7a7429f9aa52d4f748
@@ -68,15 +68,15 @@ POST http://localhost:3000/login
 content-type: application/json
 
 {
-    "email": "admin@gmail.com",
-    "password": "admin123"
+    "email": "akshit@gmail.com",
+    "password": "akshit123"
 }
 
 ###
-GET http://localhost:3000/users
+GET http://localhost:3000/users?page=2&limit=5
 
 ###
 GET http://localhost:3000/admin
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODQxOTcxOWNkMmU0OTAxYzgyOTg0MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MDM3MTY0OX0.8ACiDWXvI_YCsg5BWesIzJvepUynJH5YfQNObsw-ZGs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODVlNTQ2ZDc0ZWE5YmY2YzE3ZTI4YyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcwMzgyODgzfQ.IJH6LC2Tzdo8ShPZKmFXDIh2dBKt9YvCycpk3g59tcw
 
 

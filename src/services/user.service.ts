@@ -23,6 +23,14 @@ export const login = async (email: string) => {
   return await UserModel.findOne({ email });
 };
 
-export const getUser=async()=>{
-  return await UserModel.find();
+export const getUser=async(page:number,limit:number)=>{
+  const skip=(page-1)*limit;
+  const users=await UserModel.find()
+              .skip(skip)
+              .limit(limit);
+  const totalUsers=await UserModel.countDocuments();
+  return {users,totalUsers,
+          totalPages:Math.ceil(totalUsers/limit)
+  }
+  // return await UserModel.find();
 }
