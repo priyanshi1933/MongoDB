@@ -44,7 +44,8 @@ export const  getUsers=async(req:Request,res:Response)=>{
   // }
   const page=Number(req.query.page) || 1;
   const limit=Number(req.query.limit) || 5;
-  const result=await getUser(page,limit);
+  const search=req.query.search as string;
+  const result=await getUser(page,limit,search);
   res.json({
     currentPage:page,
     totalPages:result.totalPages,

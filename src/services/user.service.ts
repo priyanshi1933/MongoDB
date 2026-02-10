@@ -23,12 +23,13 @@ export const login = async (email: string) => {
   return await UserModel.findOne({ email });
 };
 
-export const getUser=async(page:number,limit:number)=>{
+export const getUser=async(page:number,limit:number,search?:string)=>{
+  const query=search?{name:{$regex:search,$options:"i"}}:{};
   const skip=(page-1)*limit;
-  const users=await UserModel.find()
+  const users=await UserModel.find(query)
               .skip(skip)
               .limit(limit);
-  const totalUsers=await UserModel.countDocuments();
+  const totalUsers=await UserModel.countDocuments(query);
   return {users,totalUsers,
           totalPages:Math.ceil(totalUsers/limit)
   }
