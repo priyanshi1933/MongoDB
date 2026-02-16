@@ -9,8 +9,8 @@ import {
 
 export const create = async (req: Request, res: Response) => {
   try {
-    const productId = req.body.productId;
-    const order = await createOrder(productId, req.body);
+    const {productId,quantity} = req.body;
+    const order = await createOrder(productId,quantity);
     res.json(order);
   } catch (error) {
     res.json({ message: "Record not inserted" });
@@ -27,14 +27,26 @@ export const readById = async (req: Request, res: Response) => {
   }
 };
 
-export const read = async (req: Request, res: Response) => {
-  try {
-    const order = await getAllOrder();
-    res.json(order);
-  } catch (error) {
-    res.json({ message: "No Record" });
-  }
-};
+// export const read = async (req: Request, res: Response) => {
+//   try {
+//     const order = await getAllOrder();
+//     res.json(order);
+//   } catch (error) {
+//     res.json({ message: "No Record" });
+//   }
+// };
+
+export const read=async(req:Request,res:Response)=>{
+  const page=Number(req.query.page) || 1;
+  const limit=Number(req.query.limit) || 3;
+  const result=await getAllOrder(page,limit);
+  res.json({
+    currentPage:page,
+    totalPages:result.totalPages,
+    totalOrders:result.totalOrders,
+    data:result.orders
+  })
+}
 
 export const update = async (req: Request, res: Response) => {
   try {

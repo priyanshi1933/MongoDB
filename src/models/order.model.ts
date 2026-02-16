@@ -1,17 +1,22 @@
-import mongoose,{Schema,Document} from "mongoose";
+import mongoose,{Schema,Document,Types} from "mongoose";
 
 export interface IOrder extends Document{
-    productId:mongoose.Schema.Types.ObjectId,
-    status:string
+    productId:Types.ObjectId,
+    quantity:number,
+    totalAmount:number
 }
 
 const OrderSchema:Schema<IOrder>=new Schema<IOrder>({
     productId:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:Schema.Types.ObjectId,
         ref:"Product"
     },
-    status:{
-        type:String,
+    quantity:{
+        type:Number,
+        required:true
+    },
+    totalAmount:{
+        type:Number,
         required:true
     }
 })

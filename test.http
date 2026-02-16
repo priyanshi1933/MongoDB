@@ -30,15 +30,16 @@ POST http://localhost:3000/orders
 content-type: application/json
 
 {
-    "productId": "697b3ea062317712c70139dc",
-    "status": "Delievered"
+    "productId": "69841c999cd2e4901c829852",
+    "quantity":2,
+    "totalAmount":1000
 }
 
 ###
 GET http://localhost:3000/orders/697b58e462317712c70139f1
 
 ###
-GET http://localhost:3000/orders
+GET http://localhost:3000/orders?page=2&limit=2&search=top
 
 ###
 PUT http://localhost:3000/orders/697b3325908cbbc5246bd07d 
