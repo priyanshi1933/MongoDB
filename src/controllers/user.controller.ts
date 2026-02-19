@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { getUser, login, register } from "../services/user.service";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import logger from "../utils/logger";
 
 export const registerUser = async (req: Request, res: Response) => {
   try{
@@ -9,6 +10,7 @@ const { name,email, password: hashedPassword, role } = req.body;
   const user = await register(name,email, hashedPassword, role);
   res.status(201).json(user);
   }catch(error:any){
+    logger.error(error);
     res.status(400).json({message:error.message})
   }
   

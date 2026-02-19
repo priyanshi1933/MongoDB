@@ -58,10 +58,10 @@ POST http://localhost:3000/register
 content-type: application/json
 
 {
-    "name":"Manvi",
-    "email": "manvi@gmail.com",
-    "password": "manvi123",
-    "role":"admin"
+    "name":"Shubh",
+    "email": "shubh@gmail.com",
+    "password": "shubh123",
+    "role":"user"
 }
 
 ###

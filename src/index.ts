@@ -3,6 +3,7 @@ import express from "express";
 import router from "./routes/route";
 import cors, { CorsOptions } from "cors";
 import path from "path"
+import requestLogger from "./middleware/logger.middleware";
 
 mongoose
   .connect("mongodb://localhost:27017/ts_demo")
@@ -20,6 +21,7 @@ const corsOptions:CorsOptions={
 
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(requestLogger);
 app.use(router);
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 

@@ -6,6 +6,7 @@ import {
   getProductByOrder,
   updateOrder,
 } from "../services/order.service";
+import logger from "../utils/logger";
 
 export const create = async (req: Request, res: Response) => {
   try {
@@ -13,6 +14,7 @@ export const create = async (req: Request, res: Response) => {
     const order = await createOrder(productId,quantity);
     res.json(order);
   } catch (error) {
+    logger.error(error);
     res.json({ message: "Record not inserted" });
   }
 };

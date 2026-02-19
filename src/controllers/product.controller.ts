@@ -9,6 +9,7 @@ import {
 import fs from "fs"
 import path from "path";
 import { productValidation } from "../validation/product.validation";
+import logger from "../utils/logger";
 
 export const create = async (req: Request, res: Response) => {
   const dataToValidate={...req.body,image:req.file?req.file.filename:undefined};
@@ -22,6 +23,7 @@ export const create = async (req: Request, res: Response) => {
     const product = await createProduct(title,Number(price),image);
     res.json(product);
   } catch (error:any) {
+    logger.error(error);
     res.status(400).json({ message: "Record not inserted" });
   }
 };
