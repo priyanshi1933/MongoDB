@@ -11,6 +11,7 @@ const UserSchema: Schema<IUser> = new Schema<IUser>({
   name:{
     type:String,
     required:true,
+    index:true
   },
   email: {
     type: String,

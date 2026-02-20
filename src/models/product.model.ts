@@ -9,7 +9,8 @@ export interface IProduct extends Document{
 const ProductSchema:Schema<IProduct>=new Schema<IProduct>({
     title:{
         type:String,
-        required:true
+        required:true,
+        index:true
     },
     price:{
         type:Number,
@@ -20,5 +21,5 @@ const ProductSchema:Schema<IProduct>=new Schema<IProduct>({
         required:true
     }
 })
-
+ProductSchema.index({title:1,price:1})
 export const ProductModel=mongoose.model<IProduct>("Product",ProductSchema);
