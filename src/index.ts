@@ -3,12 +3,18 @@ import express from "express";
 import router from "./routes/route";
 import cors, { CorsOptions } from "cors";
 import path from "path"
+import helmet from "helmet";
 import requestLogger from "./middleware/logger.middleware";
+import dotenv from "dotenv";
+dotenv.config();
 
+const connectionString=process.env.MONGO_URI as string;
 mongoose
-  .connect("mongodb://localhost:27017/ts_demo")
+  .connect(connectionString)
   .then(() => console.log("Connected to mongodb"))
   .catch((err) => console.error("Connection err: ", err));
+
+const PORT=process.env.PORT || 3001;
 
 const app = express();
 
@@ -18,14 +24,16 @@ const corsOptions:CorsOptions={
   allowedHeaders:['Content-Type','Authorization'],
   credentials:true
 };
-
+app.use(helmet());
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(requestLogger);
 app.use(router);
+
+
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 
-app.listen(3000, () => {
-  console.log("Server running on the port 3000");
+app.listen(PORT, () => {
+  console.log(`Server running on the port ${PORT}`);
 });

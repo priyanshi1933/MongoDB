@@ -14,7 +14,7 @@ GET http://localhost:3000/products?search=bag&page=1&limit=6
 GET http://localhost:3000/products/697b1a7a7429f9aa52d4f748
 
 ###
-PUT http://localhost:3000/products/697b1a7a7429f9aa52d4f748 
+PUT http://localhost:3000/products/698486d48da0a417e1b5a988 
 content-type: application/json
 
 {
@@ -58,9 +58,9 @@ POST http://localhost:3000/register
 content-type: application/json
 
 {
-    "name":"Shubh",
-    "email": "shubh@gmail.com",
-    "password": "shubh123",
+    "name":"Yugma",
+    "email": "yugma@gmail.com",
+    "password": "yugma123",
     "role":"user"
 }
 
@@ -69,8 +69,8 @@ POST http://localhost:3000/login
 content-type: application/json
 
 {
-    "email": "akshit@gmail.com",
-    "password": "akshit123"
+    "email": "admin123@gmail.com",
+    "password": "admin123"
 }
 
 ###
@@ -78,6 +78,6 @@ GET http://localhost:3000/users?search=om&page=1&limit=7
 
 ###
 GET http://localhost:3000/admin
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODVlNTQ2ZDc0ZWE5YmY2YzE3ZTI4YyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcwMzgyODgzfQ.IJH6LC2Tzdo8ShPZKmFXDIh2dBKt9YvCycpk3g59tcw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODU3MzBmMGM0OWUzYjljOTQyN2Y1MyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MTgyMzE1NCwiZXhwIjoxNzcxODI2NzU0fQ.riXoRscpaWYYxHcN8WURuHuiEHCkMfR5UhHWiJAW2Kw
 
 

@@ -3,6 +3,11 @@ import { getUser, login, register } from "../services/user.service";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import logger from "../utils/logger";
+import dotenv from "dotenv"
+
+dotenv.config();
+
+const secret=process.env.JWT_SECRET as string;
 
 export const registerUser = async (req: Request, res: Response) => {
   try{
@@ -27,7 +32,7 @@ const { email, password } = req.body;
   if (!isMatch) {
     return res.status(401).json({  field:"password", message: "Password is not match" });
   }
-  let token = jwt.sign({ id: user._id, role: user.role }, "secretKey");
+  let token = jwt.sign({ id: user._id, role: user.role }, secret,{ expiresIn: "1h" } );
   res.cookie("token", token);
   res.json({token});
   }catch(error:any){

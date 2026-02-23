@@ -40,7 +40,7 @@ export const readById = async (req: Request, res: Response) => {
 
 export const read=async(req:Request,res:Response)=>{
   const page=Number(req.query.page) || 1;
-  const limit=Number(req.query.limit) || 3;
+  const limit=Number(req.query.limit) || 5;
   const result=await getAllOrder(page,limit);
   res.json({
     currentPage:page,
