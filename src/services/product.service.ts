@@ -12,10 +12,21 @@ export const readProducts = async (
   page: number,
   limit: number,
   search?: string,
+  sort?:string
 ) => {
+  let sortOptions:any={};
+  if(sort==="price_asc"){
+    sortOptions={price:1};
+  }else if(sort==="price_desc"){
+    sortOptions={price:-1};
+  }else if(sort==="title_asc"){
+    sortOptions={title:1};
+  }else if(sort==="title_desc"){
+    sortOptions={title:-1};
+  }
   const query = search ? { title: { $regex: search, $options: "i" } } : {};
   const skip = (page - 1) * limit;
-  const products = await ProductModel.find(query).skip(skip).limit(limit);
+  const products = await ProductModel.find(query).sort(sortOptions).skip(skip).limit(limit);
   const totalProducts = await ProductModel.countDocuments(query);
   return {
     products,
