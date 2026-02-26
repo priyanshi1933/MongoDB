@@ -10,8 +10,9 @@ import logger from "../utils/logger";
 
 export const create = async (req: Request, res: Response) => {
   try {
-    const {productId,quantity} = req.body;
-    const order = await createOrder(productId,quantity);
+    const {productId,quantity,userId} = req.body;
+   
+    const order = await createOrder(productId,quantity,userId);
     res.json(order);
   } catch (error) {
     logger.error(error);

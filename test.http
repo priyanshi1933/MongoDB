@@ -8,10 +8,10 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:3000/products?search=bag&page=1&limit=6
+GET http://localhost:3000/products?page=1&limit=6
 
 ###
-GET http://localhost:3000/products/697b1a7a7429f9aa52d4f748
+GET http://localhost:3000/products/698b2d3d401ed52dfa48a1d3
 
 ###
 PUT http://localhost:3000/products/698486d48da0a417e1b5a988 
@@ -30,16 +30,20 @@ POST http://localhost:3000/orders
 content-type: application/json
 
 {
-    "productId": "69841c999cd2e4901c829852",
-    "quantity":2,
-    "totalAmount":1000
+    "productId": "699bfae36cf6ccdd244e7d9e",
+    "userId":"69848c1d8da0a417e1b5a996",
+    "quantity":1,
+    "totalAmount":1500
 }
 
 ###
-GET http://localhost:3000/orders/697b58e462317712c70139f1
+GET http://localhost:3000/orders/699fd979476b2c0293e93019
 
 ###
-GET http://localhost:3000/orders?page=2&limit=2&search=top
+GET http://localhost:3000/orders
+
+###
+GET http://localhost:3000/orders?page=6
 
 ###
 PUT http://localhost:3000/orders/697b3325908cbbc5246bd07d 
