@@ -4,7 +4,7 @@ import router from "./routes/route";
 import cors, { CorsOptions } from "cors";
 import path from "path"
 import helmet from "helmet";
-import rateLimit from "express-rate-limit";
+// import rateLimit from "express-rate-limit";
 import requestLogger from "./middleware/logger.middleware";
 import dotenv from "dotenv";
 dotenv.config();
@@ -25,13 +25,13 @@ const corsOptions:CorsOptions={
   allowedHeaders:['Content-Type','Authorization'],
   credentials:true
 };
-const limiter=rateLimit({
-  windowMs:1*60*1000,
-  max:5,
-  message:"Too many requests from this IP, please try again later."
-})
+// const limiter=rateLimit({
+//   windowMs:1*60*1000,
+//   max:5,
+//   message:"Too many requests from this IP, please try again later."
+// })
 app.use(helmet());
-app.use(limiter);
+// app.use(limiter);
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(requestLogger);
